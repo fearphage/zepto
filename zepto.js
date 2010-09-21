@@ -1,4 +1,4 @@
-(function(slice) {
+(function(slice, zepto, container) {
   var $ = function(_){
     if(typeof _ == 'function') $.dom.forEach(_)
     else { 
@@ -54,5 +54,5 @@ $.fn = {
   $.getJSON = function(url, success){ 
     $.get(url, function(json){ success(JSON.parse(json)) });
   };
-  this.$ = $;
-})([].slice);
+  container[zepto] = $;
+})([].slice, '$', this);
